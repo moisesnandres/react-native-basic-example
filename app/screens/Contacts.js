@@ -3,17 +3,18 @@ import { View, Text, FlatList } from "react-native";
 
 import { contacts } from "../config/data";
 import colors from "../config/colors";
+import { ListItem } from "../components/ListItem";
 
 export default class Contacts extends Component {
+  handleRowPress = item => null;
+
   render() {
     return (
       <FlatList
         style={{ backgroundColor: colors.background }}
         data={contacts}
         renderItem={({ item }) => (
-          <View>
-            <Text>{item.email}</Text>
-          </View>
+          <ListItem contact={item} onPress={() => this.handleRowPress(item)} />
         )}
         keyExtractor={item => item.email}
       />
