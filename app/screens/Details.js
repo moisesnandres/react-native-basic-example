@@ -1,11 +1,16 @@
 import React, { Component } from "react";
 import { View, Text } from "react-native";
 
+import { Header } from "../components/UserDetails";
+import colors from "../config/colors";
+
 export default class Details extends Component {
   render() {
+    const contact = this.props.navigation.state.params;
+
     return (
-      <View>
-        <Text>Details screen</Text>
+      <View style={{ backgroundColor: colors.background }}>
+        <Header {...contact} />
       </View>
     );
   }
