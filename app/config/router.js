@@ -1,5 +1,10 @@
 import React from "react";
-import { StackNavigator, TabNavigator } from "react-navigation";
+import { Button } from "react-native";
+import {
+  StackNavigator,
+  TabNavigator,
+  DrawerNavigator
+} from "react-navigation";
 import Icon from "react-native-vector-icons/Ionicons";
 
 import Contacts from "../screens/Contacts";
@@ -12,9 +17,12 @@ import { capitalizeFirstLetter } from "../helpers/string";
 export const ContactsStack = StackNavigator({
   Contacts: {
     screen: Contacts,
-    navigationOptions: {
-      title: "Contacts"
-    }
+    navigationOptions: ({ navigation }) => ({
+      title: "Contacts",
+      headerLeft: (
+        <Button title="Open" onPress={() => navigation.openDrawer()} />
+      )
+    })
   },
   Details: {
     screen: Details,
@@ -29,18 +37,24 @@ export const ContactsStack = StackNavigator({
 export const NewContactStack = StackNavigator({
   NewContact: {
     screen: NewContact,
-    navigationOptions: {
-      title: "New Contact"
-    }
+    navigationOptions: ({ navigation }) => ({
+      title: "New Contact",
+      headerLeft: (
+        <Button title="Open" onPress={() => navigation.openDrawer()} />
+      )
+    })
   }
 });
 
 export const MeStack = StackNavigator({
   NewContact: {
     screen: Me,
-    navigationOptions: {
-      title: "Me"
-    }
+    navigationOptions: ({ navigation }) => ({
+      title: "Me",
+      headerLeft: (
+        <Button title="Open" onPress={() => navigation.openDrawer()} />
+      )
+    })
   }
 });
 
@@ -70,6 +84,27 @@ export const Tabs = TabNavigator({
       tabBarIcon: ({ tintColor }) => (
         <Icon name="ios-contact" size={35} color={tintColor} />
       )
+    }
+  }
+});
+
+export const Drawer = DrawerNavigator({
+  Contact: {
+    screen: ContactsStack,
+    navigationOptions: {
+      drawerLabel: "Contacts"
+    }
+  },
+  NewContact: {
+    screen: NewContactStack,
+    navigationOptions: {
+      drawerLabel: "New Contact"
+    }
+  },
+  Me: {
+    screen: MeStack,
+    navigationOptions: {
+      drawerLabel: "Me"
     }
   }
 });
