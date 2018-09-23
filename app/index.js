@@ -1,8 +1,8 @@
 import React, { Component } from "react";
-import { ContactsStack } from "./config/router";
+import { Tabs } from "./config/router";
 
 export default class App extends Component {
   render() {
-    return <ContactsStack />;
+    return <Tabs />;
   }
 }
