@@ -6,7 +6,7 @@ import colors from "../config/colors";
 import { ListItem } from "../components/ListItem";
 
 export default class Contacts extends Component {
-  handleRowPress = item => null;
+  handleRowPress = item => this.props.navigation.navigate("Details");
 
   render() {
     return (

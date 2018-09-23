@@ -1,8 +1,8 @@
 import React, { Component } from "react";
-import Contacts from "./screens/Contacts";
+import { ContactsStack } from "./config/router";
 
 export default class App extends Component {
   render() {
-    return <Contacts />;
+    return <ContactsStack />;
   }
 }
