@@ -51,5 +51,8 @@ export default StyleSheet.create({
   },
   actionIcon: {
     marginLeft: 13
+  },
+  infoContainer: {
+    paddingVertical: 15
   }
 });
